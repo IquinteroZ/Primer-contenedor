@@ -1,0 +1,15 @@
+#Construir imagen 
+docker build -t hola-docker .
+  Explicación del comando:
+-docker build: Le dice a Docker que construya una imagen.
+-t hola-docker: Asigna el nombre "hola-docker" a la imagen.
+-El . al final indica que Docker debe usar el Dockerfile que está en el directorio actual.
+  
+#el siguiente comando para correr tu imagen Docker en un contenedor
+  docker run -d -p 3000:3000 --name mi-hola-docker hola-docker
+Explicación del comando:
+-docker run: Le dice a Docker que ejecute un contenedor.
+-d: Ejecuta el contenedor en modo desacoplado (detached), lo que significa que no bloqueará tu terminal.
+-p 3000:3000: Esto mapea el puerto 3000 del contenedor al puerto 3000 de tu máquina local, de manera que podrás acceder a la aplicación desde tu navegador en http://localhost:3000.
+--name mi-hola-docker: Le damos un nombre personalizado al contenedor, en este caso, mi-hola-docker.
+-hola-docker: Es el nombre de la imagen que construimos anteriormente.
